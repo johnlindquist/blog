@@ -34,7 +34,7 @@ published: false
 
   fs.writeFile(filePath, content)
 
-  shell.exec(`code ${blogPath}`)
+  shell.exec(`code ${blogPath} -g ${filePath}`)
 })
 
 cli.parse()
