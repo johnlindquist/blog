@@ -32,7 +32,13 @@ published: false
 
   const filePath = `${blogPath}/content/blog/${slug}.md`
 
-  fs.writeFile(filePath, content)
+  fs.writeFile(filePath, content, { flag: "wx" }, function(err) {
+    if (err) {
+      console.log("file " + filePath + " already exists")
+    } else {
+      console.log("Succesfully written " + filePath)
+    }
+  })
 
   shell.exec(`code ${blogPath} -g ${filePath}`)
 })
